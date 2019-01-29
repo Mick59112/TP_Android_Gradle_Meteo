@@ -1,4 +1,4 @@
-package fr.vivaneo.ratp_android.utils;
+package com.example.fragment.ui.meteo;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

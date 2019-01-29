@@ -28,4 +28,5 @@
     <string name="button_ok_meteo">OK</string>
     <string name="hint_ville">Entrez une ville</string>
     <string name="dialog_meteo_city_empty">Vous devez saisir une ville</string>
+    <string name="dialog_meteo_network">Vous devez être connecté</string>
 </resources>
