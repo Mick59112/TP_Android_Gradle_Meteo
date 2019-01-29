@@ -52,8 +52,8 @@
 
     <ImageView
         android:id="@+id/imageViewIcon"
-        android:layout_width="142dp"
-        android:layout_height="152dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:contentDescription="TODO"
         tools:src="@mipmap/ic_launcher" />

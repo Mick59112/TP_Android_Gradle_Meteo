@@ -21,7 +21,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.fragment.R;
 import com.example.fragment.ui.meteo.models.OpenWeatherMap;
-import com.example.fragment.ui.meteo.models.Weather;
+import com.example.fragment.ui.meteo.utils.Constant;
+import com.example.fragment.ui.meteo.utils.FastDialog;
+import com.example.fragment.ui.meteo.utils.Network;
+import com.example.fragment.ui.meteo.utils.Preference;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
@@ -70,20 +73,15 @@ public class MeteoFragment extends Fragment {
                                     public void onResponse(String response) {
                                         Log.e("response", response);
 
-                                        OpenWeatherMap owp = new Gson().fromJson(response, OpenWeatherMap.class);
-
-                                        if (owp.cod.equals("200")) {
-                                            textViewCity.setText(owp.name);
-                                            textViewTemperature.setText(owp.main.temp);
-                                            String value = owp.weather.get(0).icon;
-                                            Picasso.get().load(String.format(Constant.URL_IMAGE, value)).into(imageViewIcon);
-                                        }
-
+                                        getData(response);
                                     }
                                 }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
                                 Log.e("response", "error");
+
+                                String json = new String(error.networkResponse.data);
+                                getData(json);
                             }
                         });
 
@@ -105,7 +103,29 @@ public class MeteoFragment extends Fragment {
                 }
             }
         });
+
+        // affichage de la derniere ville (preference)
+        String city = Preference.getCity(getContext());
+        if (city != null) {
+            editTextCity.setText(city);
+            buttonSubmit.performClick();
+        }
     }
 
+    private void getData(String response) {
 
+        OpenWeatherMap owp = new Gson().fromJson(response, OpenWeatherMap.class);
+
+        if (owp.cod.equals("200")) {
+            //Enejistre la ville dans les preferences
+            Preference.setCity(getContext(), owp.name);
+
+            textViewCity.setText(owp.name);
+            textViewTemperature.setText(owp.main.temp + getString(R.string.textView_celcius_meteo));
+            String value = owp.weather.get(0).icon;
+            Picasso.get().load(String.format(Constant.URL_IMAGE, value)).into(imageViewIcon);
+        } else {
+            FastDialog.showDialog(getContext(), FastDialog.SIMPLE_DIALOG, owp.message);
+        }
+    }
 }

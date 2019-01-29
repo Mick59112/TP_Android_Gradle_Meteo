@@ -29,4 +29,5 @@
     <string name="hint_ville">Entrez une ville</string>
     <string name="dialog_meteo_city_empty">Vous devez saisir une ville</string>
     <string name="dialog_meteo_network">Vous devez être connecté</string>
+    <string name="textView_celcius_meteo">°C</string>
 </resources>
