@@ -1,0 +1,31 @@
+<resources>
+    <!--App name-->
+    <string name="app_name">Fragment</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!--Menu navigation-->
+    <string name="temperature">Temperature</string>
+    <string name="meteo">Météo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="temperature_title">Convertir Celcius/Fahrenheit</string>
+    <string name="temperature_hint_celcius">Entrez un celcius</string>
+    <string name="temperature_hint_fahrenheit">Entrez un fehrenheit</string>
+    <string name="temperature_button_save">Sauvegarder</string>
+    <string name="temperature_unit_fahrenheit">°F</string>
+    <string name="temperature_unit_celcius">°C</string>
+
+    <string name="temperature_convert_text">%s C\'est égal à %s F</string>
+    <string name="action_delete">Effacer la liste</string>
+    <string name="ok">ok</string>
+    <string name="cancel">cancel</string>
+    <string name="button_ok_meteo">OK</string>
+    <string name="hint_ville">Entrez une ville</string>
+    <string name="dialog_meteo_city_empty">Vous devez saisir une ville</string>
+</resources>
